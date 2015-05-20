@@ -33,7 +33,6 @@ function View(attrs) {
     this._initializeSubviews();
     this.template = attrs.template || this.template;
     this.initialize.apply(this, arguments);
-    this.set(pick(attrs, viewOptions));
     if (this.autoRender && this.template) {
         this.render();
     }
@@ -87,9 +86,6 @@ var BaseState = State.extend({
 
 // Cached regex to split keys for `delegate`.
 var delegateEventSplitter = /^(\S+)\s*(.*)$/;
-
-// List of view options to be merged as properties.
-var viewOptions = ['model', 'collection', 'el'];
 
 View.prototype = Object.create(BaseState.prototype);
 
